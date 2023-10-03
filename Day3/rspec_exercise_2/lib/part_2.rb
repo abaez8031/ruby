@@ -9,8 +9,7 @@ end
 def substrings(str)
   subs = []
   (0...str.length).each do |i|
-    subs << str[i]
-    (i + 1...str.length).each do |j|
+    (i...str.length).each do |j|
       subs << str[i..j]
     end
   end
