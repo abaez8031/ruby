@@ -18,12 +18,11 @@ end
 
 def alternating_case(sentence)
   words = sentence.split(" ")
-  output = []
-  words.each_with_index do |word, i|
+  output = words.map.with_index do |word, i|
     if i.even? 
-      output << word.upcase
+      word.upcase
     else
-      output << word.downcase
+      word.downcase
     end
   end
   output.join(" ")
