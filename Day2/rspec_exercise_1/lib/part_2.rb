@@ -7,15 +7,11 @@ def hipsterfy(word)
 end
 
 def vowel_counts(str)
-  count = {}
+  count = Hash.new(0)
   vowels = "AEIOUaeiou".split("")
   str = str.downcase
   str.split("").each do |char|
-    if !count[char]
-      count[char] = 1
-    else
-      count[char] += 1
-    end
+    count[char] += 1
   end
   count
 end
