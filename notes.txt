@@ -78,3 +78,15 @@ multi_d = [
 ]
 
 p multi_d.flatten   # => ["a", "b", "c", "d", "e", "f"]
+
+Here are the core RSpec terms you'll see in every spec file:
+
+describe names the method being tested
+it expresses the expected behavior of the method being tested
+expect shows how that behavior is tested
+
+--PRY--
+You can begin a pry session simply by using the command pry in your command line.
+You can use ls to list methods that you can use in a given context. For example, you can see what methods you have available to use on strings by entering ls String.
+You can use ri, which is built into Ruby, to show the documentation for a given method. For example, if you want to learn more about the end_with? method from the example above, you can run ri String#end_with?. (Be sure to use Class#method for instance methods and Class::method for class methods.)
+load is another method built into Ruby that you'll use often in Pry. It allows you to load an entire .rb file into Pry and begin playing with it.
