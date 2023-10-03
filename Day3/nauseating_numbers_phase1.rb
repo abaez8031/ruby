@@ -66,4 +66,3 @@ end
 # p perfect_square?(40)    # false
 # p perfect_square?(32)    # false
 # p perfect_square?(50)    # false
-
