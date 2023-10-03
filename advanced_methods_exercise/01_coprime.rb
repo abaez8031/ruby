@@ -5,11 +5,11 @@
 
 def coprime?(num_1, num_2)
   (2..num_1).each do |i|
-    if(num_1 % i == 0 && num_2 % i == 0)
+    if num_1 % i == 0 && num_2 % i == 0
       return false
     end
   end
-  return true
+  true
 end
 
 p coprime?(25, 12)    # => true
