@@ -8,9 +8,7 @@ end
 
 def repeat(str,num)
   output = ""
-  num.times do
-    output += str
-  end
+  num.times { output += str }
   output
 end
 
