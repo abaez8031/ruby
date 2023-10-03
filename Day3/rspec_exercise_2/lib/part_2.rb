@@ -11,11 +11,7 @@ def substrings(str)
   (0...str.length).each do |i|
     subs << str[i]
     (i + 1...str.length).each do |j|
-      if i == j
-        next
-      else
-        subs << str[i..j]
-      end
+      subs << str[i..j]
     end
   end
   subs
