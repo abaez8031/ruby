@@ -4,9 +4,9 @@
 def max_inject(*arr)
   arr.inject do |acc,el|
     if el > acc
-      acc = el
+      el
     else 
-      acc = acc
+      acc
     end
   end
 end
