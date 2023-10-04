@@ -1,19 +1,33 @@
 # anti_prime?
 # Write a method anti_prime? that accepts a number as an argument. The method should return true if the given number has more divisors than all positive numbers less than the given number. For example, 24 is an anti-prime because it has more divisors than any positive number less than 24. Math Fact: Numbers that meet this criteria are also known as highly composite numbers.
 
-def anti_prime?(num)
+def get_num_factors(num)
+  factors = 0
+  (1..num).each do |i|
+    factors += 1 if num % i == 0
+  end
+  factors
 end
 
-# p anti_prime?(24)   # true
-# p anti_prime?(36)   # true
-# p anti_prime?(48)   # true
-# p anti_prime?(360)  # true
-# p anti_prime?(1260) # true
-# p anti_prime?(27)   # false
-# p anti_prime?(5)    # false
-# p anti_prime?(100)  # false
-# p anti_prime?(136)  # false
-# p anti_prime?(1024) # false
+def anti_prime?(num)
+  most_factors = 0
+  (1...num).each do |i|
+    most_factors = get_num_factors(i) if get_num_factors(i) > most_factors
+  end
+  get_num_factors(num) > most_factors
+end
+
+
+p anti_prime?(24)   # true
+p anti_prime?(36)   # true
+p anti_prime?(48)   # true
+p anti_prime?(360)  # true
+p anti_prime?(1260) # true
+p anti_prime?(27)   # false
+p anti_prime?(5)    # false
+p anti_prime?(100)  # false
+p anti_prime?(136)  # false
+p anti_prime?(1024) # false
 
 # matrix_addition
 # Let a 2-dimensional array be known as a "matrix". Write a method matrix_addition that accepts two matrices as arguments. The two matrices are guaranteed to have the same "height" and "width". The method should return a new matrix representing the sum of the two arguments. To add matrices, we simply add the values at the same positions:
