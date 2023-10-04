@@ -6,14 +6,35 @@
 # 11 is not a Mersenne prime because although it is prime, it does not have the form 2^x - 1
 # The first three Mersenne primes are 3, 7, and 31. Write a method mersenne_prime that accepts a number, n, as an argument and returns the n-th Mersenne prime.
 
-def mersenne_prime
+def mersenne_prime(n)
+  mersennes = []
+  i = 1
+  while mersennes.length < n
+    mersennes << i if power_of_two?(i + 1) && is_prime?(i)
+    i += 1
+  end
+  mersennes[-1]
 end
 
-# p mersenne_prime(1) # 3
-# p mersenne_prime(2) # 7
-# p mersenne_prime(3) # 31
-# p mersenne_prime(4) # 127
-# p mersenne_prime(6) # 131071
+def power_of_two?(n)
+  return false if n < 1
+  return true if n == 1
+  power_of_two?(n / 2.0)
+end
+
+def is_prime?(num)
+  return false if num < 2
+  (2...num).each do |i|
+    return false if num % i == 0
+  end
+  true
+end
+
+p mersenne_prime(1) # 3
+p mersenne_prime(2) # 7
+p mersenne_prime(3) # 31
+p mersenne_prime(4) # 127
+p mersenne_prime(6) # 131071
 
 # triangular_word?
 # A triangular number is a number of the form (i * (i + 1)) / 2 where i is some positive integer. Substituting i with increasing integers gives the triangular number sequence. The first five numbers of the triangular number sequence are 1, 3, 6, 10, 15. Below is a breakdown of the calculations used to obtain these numbers:

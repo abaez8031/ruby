@@ -2,20 +2,31 @@
 # Write a method matrix_addition_reloaded that accepts any number of matrices as arguments. The method should return a new matrix representing the sum of the arguments. Matrix addition can only be performed on matrices of similar dimensions, so if all of the given matrices do not have the same "height" and "width", then return nil.
 
 def matrix_addition_reloaded(*matrices)
+  length = matrices[0][0].length
+  return nil if matrices.all? { |matrix| !matrix.length == length}
+  new_matrix = Array.new(matrices.length) { Array.new(length, 0) }
+  matrices.each do |matrix|
+    (0...matrix.length).each do |i|
+      (0...length).each do |j|
+        new_matrix[i][j] += matrix[i][j]
+      end
+    end
+  end
+  new_matrix
 end
 
-# matrix_a = [[2,5], [4,7]]
-# matrix_b = [[9,1], [3,0]]
-# matrix_c = [[-1,0], [0,-1]]
-# matrix_d = [[2, -5], [7, 10], [0, 1]]
-# matrix_e = [[0 , 0], [12, 4], [6,  3]]
+matrix_a = [[2,5], [4,7]]
+matrix_b = [[9,1], [3,0]]
+matrix_c = [[-1,0], [0,-1]]
+matrix_d = [[2, -5], [7, 10], [0, 1]]
+matrix_e = [[0 , 0], [12, 4], [6,  3]]
 
-# p matrix_addition_reloaded(matrix_a, matrix_b)              # [[11, 6], [7, 7]]
-# p matrix_addition_reloaded(matrix_a, matrix_b, matrix_c)    # [[10, 6], [7, 6]]
-# p matrix_addition_reloaded(matrix_e)                        # [[0, 0], [12, 4], [6, 3]]
-# p matrix_addition_reloaded(matrix_d, matrix_e)              # [[2, -5], [19, 14], [6, 4]]
-# p matrix_addition_reloaded(matrix_a, matrix_b, matrix_e)    # nil
-# p matrix_addition_reloaded(matrix_d, matrix_e, matrix_c)    # nil
+p matrix_addition_reloaded(matrix_a, matrix_b)              # [[11, 6], [7, 7]]
+p matrix_addition_reloaded(matrix_a, matrix_b, matrix_c)    # [[10, 6], [7, 6]]
+p matrix_addition_reloaded(matrix_e)                        # [[0, 0], [12, 4], [6, 3]]
+p matrix_addition_reloaded(matrix_d, matrix_e)              # [[2, -5], [19, 14], [6, 4]]
+p matrix_addition_reloaded(matrix_a, matrix_b, matrix_e)    # nil
+p matrix_addition_reloaded(matrix_d, matrix_e, matrix_c)    # nil
 
 # squarocol?
 # Write a method squarocol? that accepts a 2-dimensional array as an argument. The method should return a boolean indicating whether or not any row or column is completely filled with the same element. You may assume that the 2-dimensional array has "square" dimensions, meaning it's height is the same as it's width.
