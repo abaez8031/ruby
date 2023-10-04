@@ -1,7 +1,7 @@
 # matrix_addition_reloaded
 # Write a method matrix_addition_reloaded that accepts any number of matrices as arguments. The method should return a new matrix representing the sum of the arguments. Matrix addition can only be performed on matrices of similar dimensions, so if all of the given matrices do not have the same "height" and "width", then return nil.
 
-def matrix_addition_reloaded
+def matrix_addition_reloaded(*matrices)
 end
 
 # matrix_a = [[2,5], [4,7]]
@@ -20,7 +20,7 @@ end
 # squarocol?
 # Write a method squarocol? that accepts a 2-dimensional array as an argument. The method should return a boolean indicating whether or not any row or column is completely filled with the same element. You may assume that the 2-dimensional array has "square" dimensions, meaning it's height is the same as it's width.
 
-def squarocol?
+def squarocol?(arr)
 end
 
 # p squarocol?([
