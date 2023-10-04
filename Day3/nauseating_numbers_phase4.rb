@@ -30,11 +30,11 @@ def is_prime?(num)
   true
 end
 
-p mersenne_prime(1) # 3
-p mersenne_prime(2) # 7
-p mersenne_prime(3) # 31
-p mersenne_prime(4) # 127
-p mersenne_prime(6) # 131071
+# p mersenne_prime(1) # 3
+# p mersenne_prime(2) # 7
+# p mersenne_prime(3) # 31
+# p mersenne_prime(4) # 127
+# p mersenne_prime(6) # 131071
 
 # triangular_word?
 # A triangular number is a number of the form (i * (i + 1)) / 2 where i is some positive integer. Substituting i with increasing integers gives the triangular number sequence. The first five numbers of the triangular number sequence are 1, 3, 6, 10, 15. Below is a breakdown of the calculations used to obtain these numbers:
@@ -51,17 +51,35 @@ p mersenne_prime(6) # 131071
 
 # Write a method triangular_word? that accepts a word as an argument and returns a boolean indicating whether or not that word's number encoding is a triangular number. You can assume that the argument contains lowercase letters.
 
-def triangular_word
+def triangular_word?(word)
+  alphabet = ("a".."z").to_a
+  encoding = 0
+  word.each_char do |char|
+    encoding += alphabet.index(char) + 1
+  end
+  triangular_num(encoding).include?(encoding)
 end
 
-# p triangular_word?('abc')       # true
-# p triangular_word?('ba')        # true
-# p triangular_word?('lovely')    # true
-# p triangular_word?('question')  # true
-# p triangular_word?('aa')        # false
-# p triangular_word?('cd')        # false
-# p triangular_word?('cat')       # false
-# p triangular_word?('sink')      # false
+def triangular_num(n) #25
+  i = 1
+  triangles = []
+  (0..n).each do |num|
+    if ((num * 2) / i) - 1 == i
+      triangles << num
+      i += 1
+    end
+  end
+  triangles
+end
+
+p triangular_word?('abc')       # true
+p triangular_word?('ba')        # true
+p triangular_word?('lovely')    # true
+p triangular_word?('question')  # true
+p triangular_word?('aa')        # false
+p triangular_word?('cd')        # false
+p triangular_word?('cat')       # false
+p triangular_word?('sink')      # false
 
 # consecutive_collapse
 # Write a method consecutive_collapse that accepts an array of numbers as an argument. The method should return a new array that results from continuously removing consecutive numbers that are adjacent in the array. If multiple adjacent pairs are consecutive numbers, remove the leftmost pair first. For example:
