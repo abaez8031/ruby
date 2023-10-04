@@ -89,6 +89,11 @@ end
 # Write a method tribonacci_number that accepts a number argument, n, and returns the n-th number of the tribonacci sequence.
 
 def tribonacci_number(num)
+  seq = [1,1,2]
+  while seq.length < num
+    seq << seq[-3] + seq[-2] + seq[-1]
+  end
+  seq[num - 1]
 end
 
 # p tribonacci_number(1)  # 1
