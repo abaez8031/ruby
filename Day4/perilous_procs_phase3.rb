@@ -14,22 +14,22 @@ end
 
 # Examples
 
-is_even = Proc.new { |n| n.even? }
-is_positive = Proc.new { |n| n > 0 }
-square = Proc.new { |n| n * n }
-flip_sign = Proc.new { |n| -n }
+# is_even = Proc.new { |n| n.even? }
+# is_positive = Proc.new { |n| n > 0 }
+# square = Proc.new { |n| n * n }
+# flip_sign = Proc.new { |n| -n }
 
-arr_1 = [8, 5, 10, 4]
-p selected_map!(arr_1, is_even, square)     # nil
-p arr_1                                     # [64, 5, 100, 16]
+# arr_1 = [8, 5, 10, 4]
+# p selected_map!(arr_1, is_even, square)     # nil
+# p arr_1                                     # [64, 5, 100, 16]
 
-arr_2 = [-10, 4, 7, 6, -2, -9]
-p selected_map!(arr_2, is_even, flip_sign)  # nil
-p arr_2                                     # [10, -4, 7, -6, 2, -9]
+# arr_2 = [-10, 4, 7, 6, -2, -9]
+# p selected_map!(arr_2, is_even, flip_sign)  # nil
+# p arr_2                                     # [10, -4, 7, -6, 2, -9]
 
-arr_3 = [-10, 4, 7, 6, -2, -9]
-p selected_map!(arr_3, is_positive, square) # nil
-p arr_3                                     # [-10, 16, 49, 36, -2, -9]
+# arr_3 = [-10, 4, 7, 6, -2, -9]
+# p selected_map!(arr_3, is_positive, square) # nil
+# p arr_3                                     # [-10, 16, 49, 36, -2, -9]
 
 # chain_map
 # Write a method that accepts any value and an array of procs as an argument. The method should return the final result of feeding the value through all of the procs. For example, if the array contains three procs, then:
@@ -38,11 +38,19 @@ p arr_3                                     # [-10, 16, 49, 36, -2, -9]
 # the result of the first proc is given to the second proc
 # the result of the second proc is given to the third proc
 # the result of third proc is the final result
-# Examples
 
+def chain_map(val, prcs)
+  prcs.each do |prc|
+    val = prc.call(val)
+  end
+  val
+end
+
+# Examples
 # add_5 = Proc.new { |n| n + 5 }
 # half = Proc.new { |n| n / 2.0 }
 # square = Proc.new { |n| n * n }
+
 
 # p chain_map(25, [add_5, half])          # 15.0
 # p chain_map(25, [half, add_5])          # 17.5
@@ -52,6 +60,18 @@ p arr_3                                     # [-10, 16, 49, 36, -2, -9]
 
 # proc_suffix
 # Write a method proc_suffix that accepts a sentence and a hash as arguments. The hash contains procs as keys and suffix strings as values. The method should return a new sentence where each word of the original sentence is appended with a suffix if the original word returns true when given to the corresponding proc key. If an original word returns true for multiple procs, then the suffixes should be appended in the order that they appear in the input hash.
+
+def proc_suffix(sentence, hash)
+  words = sentence.split(" ")
+  new_words = words.map do |word|
+    extra = ""
+    hash.each do |prc, suffix|
+      extra += suffix if prc.call(word)
+    end
+    word + extra
+  end
+  new_words.join(" ")
+end
 
 # Examples
 
@@ -80,6 +100,7 @@ p arr_3                                     # [-10, 16, 49, 36, -2, -9]
 #     contains_a => 'ly',
 #     three_letters => 'o'
 # )   # "fooding gladingly rantingly dogo catlyo"
+
 # proctition_platinum
 # Write a method proctition_platinum that accepts an array and any number of additional procs as arguments. The method should return a hash where the keys correspond to the number of procs passed in.
 
@@ -88,6 +109,16 @@ p arr_3                                     # [-10, 16, 49, 36, -2, -9]
 
 # For example, this means that the array that corresponds to the key 2 should contain the elements that return true when passed into the second proc.
 # If an element returns true for multiple procs, then it should only be placed into the array that corresponds to the proc that appears first in the arguments.
+
+def proctition_platinum(arr, *prcs)
+  hash = Hash.new { |h,k| h[k] = [] }
+  prcs.each_with_index do |prc, i|
+    arr.each do |ele|
+      hash[i + 1] << ele if prc.call(ele) && !hash.values.flatten.include?(ele)
+    end
+  end
+  hash
+end
 
 # Examples
 
@@ -107,8 +138,13 @@ p arr_3                                     # [-10, 16, 49, 36, -2, -9]
 
 # p proctition_platinum(['WHO', 'what', 'when!', 'WHERE!', 'how', 'WHY'], begins_w, is_upcase, is_yelled, contains_a)
 # # {1=>["WHO", "what", "when!", "WHERE!", "WHY"], 2=>[], 3=>[], 4=>[]}
+
 # procipher
 # Write a method procipher that accepts a sentence and a hash as arguments. The hash contains procs as both keys and values. The method should return a new sentence where each word of the input sentence is changed by a value proc if the original word returns true when passed into the key proc. If an original word returns true for multiple key procs, then the value proc changes should be applied in the order that they appear in the hash.
+
+def procipher(sentence, hash)
+  
+end
 
 # Examples
 
@@ -145,8 +181,13 @@ p arr_3                                     # [-10, 16, 49, 36, -2, -9]
 #     is_yelled => reverse,
 #     contains_a => make_question
 # ) # "STOP:) that??? taxi??? !won"
+
 # picky_procipher
 # Write a method picky_procipher that accepts a sentence and a hash as arguments. The hash contains procs as both keys and values. The method should return a new sentence where each word of the input sentence is changed by a value proc if the original word returns true when passed into the key proc. If an original word returns true for multiple key procs, then only the value proc that appears earliest in the hash should be applied.
+
+def picky_procipher(sentence, hash)
+
+end
 
 # Examples
 
