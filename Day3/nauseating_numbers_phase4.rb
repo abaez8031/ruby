@@ -72,14 +72,14 @@ def triangular_num(n) #25
   triangles
 end
 
-p triangular_word?('abc')       # true
-p triangular_word?('ba')        # true
-p triangular_word?('lovely')    # true
-p triangular_word?('question')  # true
-p triangular_word?('aa')        # false
-p triangular_word?('cd')        # false
-p triangular_word?('cat')       # false
-p triangular_word?('sink')      # false
+# p triangular_word?('abc')       # true
+# p triangular_word?('ba')        # true
+# p triangular_word?('lovely')    # true
+# p triangular_word?('question')  # true
+# p triangular_word?('aa')        # false
+# p triangular_word?('cd')        # false
+# p triangular_word?('cat')       # false
+# p triangular_word?('sink')      # false
 
 # consecutive_collapse
 # Write a method consecutive_collapse that accepts an array of numbers as an argument. The method should return a new array that results from continuously removing consecutive numbers that are adjacent in the array. If multiple adjacent pairs are consecutive numbers, remove the leftmost pair first. For example:
@@ -98,14 +98,31 @@ p triangular_word?('sink')      # false
 # example 2
 # [3, 5, 6, 2, 1] -> [3, 2, 1] -> [1]
 
-# p consecutive_collapse([3, 4, 1])                     # [1]
-# p consecutive_collapse([1, 4, 3, 7])                  # [1, 7]
-# p consecutive_collapse([9, 8, 2])                     # [2]
-# p consecutive_collapse([9, 8, 4, 5, 6])               # [6]
-# p consecutive_collapse([1, 9, 8, 6, 4, 5, 7, 9, 2])   # [1, 9, 2]
-# p consecutive_collapse([3, 5, 6, 2, 1])               # [1]
-# p consecutive_collapse([5, 7, 9, 9])                  # [5, 7, 9, 9]
-# p consecutive_collapse([13, 11, 12, 12])              # []
+def consecutive_collapse(arr)
+  new_arr = []
+  (0...arr.length).each do |i|
+    curr = arr[i]
+    nex = arr[i + 1]
+    prev = arr[i - 1]
+    if i == 0 && nex + 1 != curr && nex - 1 != curr
+      new_arr << curr
+    elsif i > 0 && i < arr.length - 1 && curr + 1 != nex && curr - 1 != nex && curr + 1 != prev && curr - 1 != prev
+      new_arr << curr
+    elsif i == arr.length - 1 && curr + 1 != prev && curr - 1 != prev
+      new_arr << curr
+    end
+  end
+  new_arr
+end
+
+p consecutive_collapse([3, 4, 1])                     # [1]
+p consecutive_collapse([1, 4, 3, 7])                  # [1, 7]
+p consecutive_collapse([9, 8, 2])                     # [2]
+p consecutive_collapse([9, 8, 4, 5, 6])               # [6]
+p consecutive_collapse([1, 9, 8, 6, 4, 5, 7, 9, 2])   # [1, 9, 2]
+p consecutive_collapse([3, 5, 6, 2, 1])               # [1]
+p consecutive_collapse([5, 7, 9, 9])                  # [5, 7, 9, 9]
+p consecutive_collapse([13, 11, 12, 12])              # []
 
 # pretentious_primes
 # Write a method pretentious_primes that takes accepts an array and a number, n, as arguments. The method should return a new array where each element of the original array is replaced according to the following rules:
