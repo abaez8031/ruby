@@ -27,6 +27,26 @@ end
 # Note that if words are capitalized in the original sentence, they should remain capitalized in the translated sentence. Vowels are the letters a, e, i, o, u.
 
 def convert_pig_latin(sentence)
+  words = sentence.split(" ")
+  vowels = "aeiou".split("")
+  new_words = words.map do |word|
+    if word.length < 3
+      word
+    elsif vowels.include?(word[0])
+      word + "yay"
+    else
+      first_vowel_idx = first_vowel_idx(word)
+      word[first_vowel_idx..-1] + word[0...first_vowel_idx] + "ay"
+    end
+  end
+  new_words.join(" ")
+end
+
+def first_vowel_idx(word)
+  vowels = "aeiou".split("")
+  (0...word.length).each do |i|
+    return i if vowels.include?(word[i])
+  end
 end
 
 # Examples
