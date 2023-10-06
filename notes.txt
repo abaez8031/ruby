@@ -90,3 +90,11 @@ You can begin a pry session simply by using the command pry in your command line
 You can use ls to list methods that you can use in a given context. For example, you can see what methods you have available to use on strings by entering ls String.
 You can use ri, which is built into Ruby, to show the documentation for a given method. For example, if you want to learn more about the end_with? method from the example above, you can run ri String#end_with?. (Be sure to use Class#method for instance methods and Class::method for class methods.)
 load is another method built into Ruby that you'll use often in Pry. It allows you to load an entire .rb file into Pry and begin playing with it.
+
+--OOP--
+
+Abstraction
+In OOP, abstraction is the process of exposing essential features of an object while hiding inner details that are not necessary to using the feature. Take this analogy: Many drivers do not understand the mechanical details of how a steering wheel works, but they can still use the steering wheel to drive a car. In a similar way, our classes should have methods that are simple to use because they hide complex logic inside of them. Let's explore some examples.
+
+Encapsulation
+Similar to abstraction, encapsulation closely relates methods and data attributes together with the hope of preventing misuse. For us, the goal of encapsulation is to give users access to the things that are safe for them to use. Some data we may choose to keep private or purposefully hide from outside users for the sake of security. One common way to encapsulate data attributes is by making them only accessible through methods that we explicitly design as programmers!
