@@ -1,5 +1,6 @@
 class Hangman
   DICTIONARY = ["cat", "dog", "bootcamp", "pizza"]
+
   def self.random_word
     DICTIONARY.sample
   end
@@ -29,8 +30,8 @@ class Hangman
 
   def get_matching_indices(char)
     matching_indices = []
-    (0...@secret_word.length).each do |i|
-      matching_indices << i if char == @secret_word[i]
+    @secret_word.each_char.with_index do |secret_char, i|
+      matching_indices << i if char == secret_char
     end
     matching_indices
   end
@@ -42,6 +43,47 @@ class Hangman
   end
 
   def try_guess(char)
+    if already_attempted?(char)
+      p "that has already been attempted"
+      return false
+    end
+
+    @attempted_chars << char
+    matching_indices = get_matching_indices(char)
+    fill_indices(char, matching_indices) 
+    @remaining_incorrect_guesses -= 1 if matching_indices.empty?
+    true
+  end
+
+  def ask_user_for_guess
+    p "Enter a char:"
+    input = gets.chomp
+    try_guess(input)
+  end
+
+  def win?
+    if @secret_word == @guess_word.join
+      puts "WIN"
+      return true
+    else
+      return false
+    end
+  end
+
+  def lose?
+    if @remaining_incorrect_guesses == 0
+      p "LOSE"
+      return true
+    end
+    false
+  end
+
+  def game_over?
+    if win? || lose?
+      p @secret_word
+      return true
+    end
+    false
   end
 
 end
