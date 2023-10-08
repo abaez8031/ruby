@@ -7,8 +7,8 @@ class Board
     @size = n * n
   end
 
-  def [](arr)
-    row,col = arr
+  def [](pos)
+    row,col = pos
     @grid[row][col]
   end
 
@@ -54,7 +54,7 @@ class Board
 
   def self.print_grid(grid)
     grid.each do |row|
-      p row
+      puts row.join(" ")
     end
   end
 
