@@ -6,7 +6,17 @@
 #
 # all_vowel_pairs(["goat", "action", "tear", "impromptu", "tired", "europe"])   # => ["action europe", "tear impromptu"]
 def all_vowel_pairs(words)
-
+    vowels = "aeiou".split("")
+    output = []
+    (0...words.length).each do |i|
+        first = words[i]
+        (i + 1...words.length).each do |j|
+            second = words[j]
+            concatenated = first + " " + second
+            output << concatenated if vowels.all? { |vowel| concatenated.include?(vowel) }
+        end
+    end
+    output
 end
 
 
