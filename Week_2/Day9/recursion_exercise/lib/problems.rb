@@ -31,15 +31,18 @@ end
 #
 # Examples:
 #
+def lucas_number(n)
+  return 2 if n == 0
+  return 1 if n == 1
+  lucas_number(n - 1) + lucas_number(n - 2)
+end
+
 # lucas_number(0)   # =>    2
 # lucas_number(1)   # =>    1
 # lucas_number(2)   # =>    3
 # lucas_number(3)   # =>    4
 # lucas_number(5)   # =>    11
 # lucas_number(9)   # =>    76
-def lucas_number(n)
-
-end
 
 
 # Write a method, sum_array(array), that takes in an array of numbers.
@@ -49,13 +52,15 @@ end
 #
 # Examples:
 #
+def sum_array(array)
+  return 0 if array.empty?
+  array.pop + sum_array(array)
+end
+
 # sum_array([])             # => 0
 # sum_array([5])            # => 5
 # sum_array([5, 2])         # => 7
 # sum_array([4, 10, -1, 2]) # => 15
-def sum_array(array)
-
-end
 
 
 # Write a method, reverse_string(str), that takes in a string.
@@ -65,13 +70,15 @@ end
 #
 # Examples:
 # 
+def reverse_string(str)
+  return "" if str.length == 0
+  str[-1] + reverse_string(str[0...-1])
+end
+
 # reverse_string("")            # => ""
 # reverse_string("c")           # => "c"
 # reverse_string("internet")    # => "tenretni"
 # reverse_string("friends")     # => "sdneirf"
-def reverse_string(str)
-
-end
 
 
 # A 1-dimensional array is also known as a flattened array.
@@ -103,5 +110,10 @@ end
 #     2-dimensional array: [['some data']]
 #     3-dimensional array: [[['some data']]]
 def flatten(data)
-
+  return [data] if !data.is_a?(Array)
+  flattened = []
+  data.each do |ele|
+    flattened += flatten(ele)
+  end
+  flattened
 end
