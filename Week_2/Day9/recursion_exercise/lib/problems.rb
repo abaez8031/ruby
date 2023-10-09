@@ -5,15 +5,18 @@
 # Solve this recursively!
 #
 # Examples:
+
+def pow(base, exponent)
+  return 1 if exponent == 0
+  base * pow(base, exponent - 1)
+end
+
 #
 # pow(2, 0) # => 1
 # pow(2, 1) # => 2
 # pow(2, 5) # => 32
 # pow(3, 4) # => 81
 # pow(4, 3) # => 64
-def pow(base, exponent)
-
-end
 
 
 # Write a method, lucas_number(n), that takes in a number.
