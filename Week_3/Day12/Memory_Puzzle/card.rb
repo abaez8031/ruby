@@ -17,7 +17,6 @@ class Card
   end
 
   def to_s
-    
   end
   
   def ==(card)
