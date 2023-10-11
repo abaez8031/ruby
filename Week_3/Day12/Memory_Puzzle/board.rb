@@ -4,6 +4,7 @@ class Board
 
   def initialize
     @grid = Array.new(4) { Array.new(4) }
+    populate
   end
 
 
@@ -22,13 +23,24 @@ class Board
   end
 
   def render
+    system("clear")
+    puts "  #{(0...size).to_a.join(' ')}"
+    @grid.each_with_index do |row, i|
+      puts "#{i} #{row.join(' ')}"
+    end
   end
 
-  def won?
-    return true if @grid.flatten.all? { |card| card.info }
+  def reveal(pos)
+    if revealed?(pos)
+      puts "You can't flip a card that has already been revealed."
+    else
+      self[pos].reveal
+    end
+    self[pos].val
   end
 
-  def reveal
+  def hide(pos)
+    self[pos].hide
   end
 
   def [](pos)
@@ -41,7 +53,14 @@ class Board
     @grid[row][col] = val
   end
 
-end
+  def revealed?(pos)
+    self[pos].revealed?
+  end
 
-b = Board.new
-b.populate
+  def won?
+    rows.all? do |row|
+      row.all?(&:revealed?)
+    end
+  end
+
+end

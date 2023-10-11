@@ -1,28 +1,33 @@
 class Card
-
-  def initialize(val)
+  attr_reader :val
+  
+  def initialize(val, revealed = false)
     @val = val
-    @face_up = false
+    @revealed = revealed
   end
 
   def hide
-    @face_up = false
+    @revealed = false
   end
 
   def reveal
-    @face_up = true
+    @revealed = true
+  end
+
+  def revealed?
+    @revealed
   end
 
   def info
-    @val if @face_up
+    @val if @revealed
   end
 
   def to_s
+    revealed? ? @val.to_s : " "
   end
   
   def ==(card)
-    return true if @val == card.val
-    false
+    @val == card.val
   end
 
 end
