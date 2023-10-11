@@ -1,4 +1,5 @@
 class Card
+
   def initialize(val)
     @val = val
     @face_up = false
@@ -23,6 +24,5 @@ class Card
     return true if @val == card.val
     false
   end
-
 
 end
