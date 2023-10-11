@@ -12,7 +12,7 @@ class Card
     @face_up = true
   end
 
-  def display
+  def info
     @val if @face_up
   end
 
