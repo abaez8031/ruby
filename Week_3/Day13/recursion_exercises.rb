@@ -3,6 +3,7 @@
 
 def range(start, finish)
   arr = []
+  return arr if start < finish
   i = start
   while i < finish
     arr += range(i + 1, finish)
@@ -10,6 +11,7 @@ def range(start, finish)
   arr
 end
 
+p range(1,5)
 
 # Write both a recursive and iterative version of sum of an array.
 
