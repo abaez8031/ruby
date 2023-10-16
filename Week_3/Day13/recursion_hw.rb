@@ -8,19 +8,25 @@ def sum_to(n)
 end
 
 #   # Test Cases
-  p sum_to(5)  # => returns 15
-  p sum_to(1)  # => returns 1
-  p sum_to(9)  # => returns 45
-  p sum_to(-8)  # => returns nil
+  # p sum_to(5)  # => returns 15
+  # p sum_to(1)  # => returns 1
+  # p sum_to(9)  # => returns 45
+  # p sum_to(-8)  # => returns nil
 
 # Exercise 2 - add_numbers
 # Write a function add_numbers(nums_array) that takes in an array of Integers and returns the sum of those numbers. Write this method recursively.
 
+def add_numbers(nums_array)
+  return 0 if nums_array.empty?
+  nums_array.pop + add_numbers(nums_array)
+end
+
 #   # Test Cases
-#   add_numbers([1,2,3,4]) # => returns 10
-#   add_numbers([3]) # => returns 3
-#   add_numbers([-80,34,7]) # => returns -39
-#   add_numbers([]) # => returns nil
+  # p add_numbers([1,2,3,4]) # => returns 10
+  # p add_numbers([3]) # => returns 3
+  # p add_numbers([-80,34,7]) # => returns -39
+  # p add_numbers([]) # => returns nil
+
 # Exercise 3 - Gamma Function
 # Let's write a method that will solve Gamma Function recursively. The Gamma Function is defined Γ(n) = (n-1)!.
 
