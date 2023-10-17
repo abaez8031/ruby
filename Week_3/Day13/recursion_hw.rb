@@ -30,11 +30,18 @@ end
 # Exercise 3 - Gamma Function
 # Let's write a method that will solve Gamma Function recursively. The Gamma Function is defined Γ(n) = (n-1)!.
 
+def gamma_fnc(n)
+  return nil if n <= 0
+  return 1 if n == 1
+  (n - 1) * gamma_fnc(n - 1)
+end
+
 #   # Test Cases
-#   gamma_fnc(0)  # => returns nil
-#   gamma_fnc(1)  # => returns 1
-#   gamma_fnc(4)  # => returns 6
-#   gamma_fnc(8)  # => returns 5040
+  p gamma_fnc(0)  # => returns nil
+  p gamma_fnc(1)  # => returns 1
+  p gamma_fnc(4)  # => returns 6
+  p gamma_fnc(8)  # => returns 5040
+  
 # Exercise 4 - Ice Cream Shop
 # Write a function ice_cream_shop(flavors, favorite) that takes in an array of ice cream flavors available at the ice cream shop, as well as the user's favorite ice cream flavor. Recursively find out whether or not the shop offers their favorite flavor.
 
