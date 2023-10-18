@@ -67,9 +67,9 @@ def reverse(string)
 end
 
 #   # Test Cases
-  p reverse("house") # => "esuoh"
-  p reverse("dog") # => "god"
-  p reverse("atom") # => "mota"
-  p reverse("q") # => "q"
-  p reverse("id") # => "di"
-  p reverse("") # => ""
+  # p reverse("house") # => "esuoh"
+  # p reverse("dog") # => "god"
+  # p reverse("atom") # => "mota"
+  # p reverse("q") # => "q"
+  # p reverse("id") # => "di"
+  # p reverse("") # => ""
