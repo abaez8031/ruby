@@ -2,16 +2,9 @@
 # Write a recursive method, range, that takes a start and an end and returns an array of all numbers in that range, exclusive. For example, range(1, 5) should return [1, 2, 3, 4]. If end < start, you can return an empty array.
 
 def range(start, finish)
-  arr = []
-  return arr if start < finish
-  i = start
-  while i < finish
-    arr += range(i + 1, finish)
-  end
-  arr
 end
 
-p range(1,5)
+# p range(1,5)
 
 # Write both a recursive and iterative version of sum of an array.
 
