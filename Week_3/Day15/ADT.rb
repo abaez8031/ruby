@@ -46,7 +46,11 @@ class Map
   end
 
   def set(key,value)
-    
+    @underlying_array.each do |inner|
+      inner[1] = value if inner[0] == key
+      break
+    end
+    @underlying_array << [key, value]
   end
 
   def get(key)
