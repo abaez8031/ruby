@@ -54,9 +54,16 @@ class Map
   end
 
   def get(key)
+    @underlying_array.each do |inner|
+      return inner[1] if inner[0] == key
+    end
+    nil
   end
 
   def delete(key)
+    value = get(key)
+    @underlying_array.reject! { |inner| inner[0] == key }
+    value
   end
 
   def show
