@@ -23,6 +23,10 @@ class PolyTreeNode
     node.parent = nil
   end
 
-  
+  def dfs(target)
+  end
+
+  def bfs(target)
+  end
 
 end
