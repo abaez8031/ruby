@@ -98,3 +98,14 @@ In OOP, abstraction is the process of exposing essential features of an object w
 
 Encapsulation
 Similar to abstraction, encapsulation closely relates methods and data attributes together with the hope of preventing misuse. For us, the goal of encapsulation is to give users access to the things that are safe for them to use. Some data we may choose to keep private or purposefully hide from outside users for the sake of security. One common way to encapsulate data attributes is by making them only accessible through methods that we explicitly design as programmers!
+
+--RECURSION--
+
+In programming, Recursion is when a method calls itself. As we have seen during the course, using helper methods can be very useful when it comes to solving problems. In our classic helper method examples, we have commonly called methods from other methods. Recursion is a similar process except we are calling the same method.
+
+In recursive methods, we need to implement a way to stop the recursive loop and prevent it from looping forever. We took care of the infinite loop issue in our countDown by using an if statement that prevents another recursive call. In general, we call such a statement the base case
+
+A recursive method consists of two fundamental parts:
+
+the base case where we halt the recursion by not making a further call
+the recursive step where we continue the recursion by making another subsequent call
