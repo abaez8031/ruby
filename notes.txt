@@ -109,3 +109,7 @@ A recursive method consists of two fundamental parts:
 
 the base case where we halt the recursion by not making a further call
 the recursive step where we continue the recursion by making another subsequent call
+
+--SQL--
+
+SQL stores data in tables. NoSQL stores data in forms other than tables. These other forms can be graphs, key-value pairs, or one of many other options, but most commonly they are documents. Documents are very similar to JSON objects with field-value pairs. For example, our NoSQL database might store a user like this:
