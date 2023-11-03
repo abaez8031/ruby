@@ -135,3 +135,8 @@ DATE
 DATETIME
 TIME
 BLOB (non-textual, binary data; e.g., an image)
+
+FOREIGN KEYS are how we model relationships between pieces of data across multiple tables. This also allows us to ensure that data is not duplicated across our database. Posts live in a single place, users in another, and the foreign key (user_id) in posts expresses the relation between the one and the other.
+
+SQL provides powerful filtering with WHERE. It supports the standard comparison and equality operators (<, >, >=, <=, =, !=) as well as boolean operators (AND, OR, NOT).
+
