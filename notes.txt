@@ -115,3 +115,9 @@ the recursive step where we continue the recursion by making another subsequent 
 SQL stores data in tables. NoSQL stores data in forms other than tables. These other forms can be graphs, key-value pairs, or one of many other options, but most commonly they are documents. Documents are very similar to JSON objects with field-value pairs. For example, our NoSQL database might store a user like this:
 
 Your DATABASE SCHEMA is a description of the organization of your database into tables and columns.
+
+When implementing a database schema, you must decide on three things:
+
+- The tables you will have
+- The columns each of those tables will have
+- The data type of each of those columns
