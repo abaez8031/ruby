@@ -121,3 +121,17 @@ When implementing a database schema, you must decide on three things:
 - The tables you will have
 - The columns each of those tables will have
 - The data type of each of those columns
+
+SQL is not quite so flexible; you must specify the type of data that will go into each column.
+
+Here are a few of the most common data types:
+
+BOOLEAN
+INT
+FLOAT (stores "floating point" numbers)
+VARCHAR(255) (essentialy a string with a length limit of 255 chars)
+TEXT (a string of unlimited length)
+DATE
+DATETIME
+TIME
+BLOB (non-textual, binary data; e.g., an image)
