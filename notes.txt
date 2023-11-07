@@ -140,6 +140,7 @@ FOREIGN KEYS are how we model relationships between pieces of data across multip
 
 SQL provides powerful filtering with WHERE. It supports the standard comparison and equality operators (<, >, >=, <=, =, !=) as well as boolean operators (AND, OR, NOT).
 
+------------------------------------------------------------------------------------
 HERE ARE THE STEPS FOR STARTING A NEW RAILS PROJECT.
 
 Make sure that Rails is installed.
@@ -185,3 +186,38 @@ end
 
 When you have made those changes, make sure you are in the demo_project directory and run bundle install. This will look for a Gemfile and then install the gems listed in it. Remember to run bundle install whenever you make changes to your Gemfile.
 
+
+PostgreSQL
+As noted above, you can initialize a new Rails app with a PostgreSQL database by using the --database=postgresql option. You can also switch an existing Rails app from SQLite to Postgres. This is convenient because differences between your development and production databases can be frustrating.
+
+If you have already created your SQLite database by running db:create, then delete the .sqlite3 files in db/.
+
+Replace the gem 'sqlite3' line in the Gemfile with gem 'pg'. Don't forget to bundle install after.
+
+Edit config/database.yml to use PostgreSQL.
+
+Change the default environment:
+
+default: &default
+  adapter: postgresql
+  pool: 5
+  timeout: 5000
+Create a database with the given project name. Name your development, test, and production databases as shown below, substituting appropriately for <project_name>:
+
+development:
+  <<: *default
+  database: <project_name>_development
+For production, also add the username and password:
+
+production:
+  <<: *default
+  database: <project_name>_production
+  username: <project_name>
+  password: <%= ENV["<PROJECT_NAME>_DATABASE_PASSWORD"] %>
+Create your new Postgres database
+
+Run rails db:create
+If you have migrations, run rails db:migrate
+If you have seeds, run rails db:seed
+
+------------------------------------------------------------------------------------
