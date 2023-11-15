@@ -246,3 +246,4 @@ VALIDATIONS & CONSTRAINTS
 
 Rails validations are defined inside models.
 Database constraints are defined inside migrations.
+DB constraints are not appropriate for validating user input.
