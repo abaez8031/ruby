@@ -241,3 +241,8 @@ end
 which creates a products table with columns called name and price.
 
 An OBJECT RELATIONAL MAPPING is the system that translates between SQL records and Ruby (or Java, or Lisp...) objects. The Active Record ORM translates rows from your SQL tables into Ruby objects on fetch, and translates your Ruby objects back to rows on save. The ORM also empowers your Ruby classes with convenient methods to perform common SQL operations.
+
+VALIDATIONS & CONSTRAINTS
+
+Rails validations are defined inside models.
+Database constraints are defined inside migrations.
