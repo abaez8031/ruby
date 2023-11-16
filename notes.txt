@@ -247,3 +247,46 @@ VALIDATIONS & CONSTRAINTS
 Rails validations are defined inside models.
 Database constraints are defined inside migrations.
 DB constraints are not appropriate for validating user input.
+You should also set up an index for any foreign key.
+For any column that you want to use as a foreign key, you should designate the type as references.
+
+t.references :column_name(id gets added), null:false, foreign_key: true
+
+To have a reference point to a table with an unconventional name, you simply tell Active Record which table to use by setting the to_table option on foreign_key. For example, if instructor actually points to a users table, you would adjust your base migration like this:
+
+ t.references :instructor, null: false, foreign_key: { to_table: :users }
+
+ HTTP REQUESTS
+ - method (GET, PUT, PATCH, POST, DELETE)
+ - path /users/4
+ - query string ? key value pairs loc=sf separated by &
+ - request body usually for POST (forms)
+
+ HTTP RESPONSE
+ - status 200 OK
+ - body 
+
+ RAILS ROUTING
+ - path
+ - method
+ - combination of path & method are associated with a specific controller & action
+ - Controllers control one resource IE UsersController PostsController
+ - Actions are methods defined on the controllers
+ - Checks routes, initializes a controller, call the right action
+
+ RESTful - Representational State Transfer - An agreed upon way of specifying routes
+
+ GET "superheroes" to "superheroes#index"
+ GET "superheroes/:id" to "superheroes#show"
+ POST "superheroes" to "superheroes#create"
+ PATCH "superheroes/:id" to "superheroes#update"
+ PUT "superheroes/:id" to "superheroes#update"
+ DELETE "superheroes/:id" to "superheroes#destroy"
+
+ resources :superheroes, only: [:index, :show, :create, :update, :destroy]
+ Controllers inherit from ApplicationController
+
+ Params hash
+ - query string
+ - request body
+ - URL params/route params
