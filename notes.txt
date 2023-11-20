@@ -290,3 +290,9 @@ To have a reference point to a table with an unconventional name, you simply tel
  - query string
  - request body
  - URL params/route params
+
+ WEBSITE - Includes assets to be rendered by browser
+ VS 
+ WEBSERVICE - Just data.
+
+ 
