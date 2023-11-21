@@ -293,4 +293,4 @@ To have a reference point to a table with an unconventional name, you simply tel
 
  WEBSITE - Includes assets to be rendered by browser
  VS 
- WEBSERVICE - Just data.
+ WEBSERVICE - Just data
