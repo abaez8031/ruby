@@ -291,9 +291,9 @@ To have a reference point to a table with an unconventional name, you simply tel
  - request body
  - URL params/route params
 
+API - Application Programming Interface
+API for ruby objects are publicly available methods
+
  WEBSITE - Includes assets to be rendered by browser
  VS 
  WEBSERVICE - Just data
-
- API - Application Programming Interface
- API for ruby objects are publicly available methods
