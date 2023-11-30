@@ -298,4 +298,4 @@ API for ruby objects are publicly available methods
  VS 
  WEBSERVICE - Just data (JSON)
 
-Client-side rendering gets data from webservice and browser renders.
+Client-side rendering gets data from webservice and browser renders (SPA)
