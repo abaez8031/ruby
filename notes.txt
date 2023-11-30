@@ -296,4 +296,4 @@ API for ruby objects are publicly available methods
 
  WEBSITE - Includes assets to be rendered by browser
  VS 
- WEBSERVICE - Just data
+ WEBSERVICE - Just data (JSON)
