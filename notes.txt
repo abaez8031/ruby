@@ -297,3 +297,5 @@ API for ruby objects are publicly available methods
  WEBSITE - Includes assets to be rendered by browser
  VS 
  WEBSERVICE - Just data (JSON)
+
+Client-side rendering gets data from webservice and browser renders.
