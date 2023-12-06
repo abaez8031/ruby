@@ -265,7 +265,7 @@ API for ruby objects are publicly available methods
 
 Client-side rendering gets data from webservice and browser renders (SPA)
 
- HTTP REQUEST
+ HTTP REQUESTS
  - method (GET, PUT, PATCH, POST, DELETE)
  - path /users/4
  - query string ? key value pairs loc=sf separated by &
