@@ -295,7 +295,7 @@ Client-side rendering gets data from webservice and browser renders (SPA)
  resources :superheroes, only: [:index, :show, :create, :update, :destroy]
  Controllers inherit from ApplicationController
 
- Params hash
+ Params hash includes
  - query string
  - request body
  - URL params/route params
