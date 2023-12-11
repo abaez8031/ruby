@@ -229,6 +229,7 @@ To create a new migration named AddPartNumberToProducts you run the command:
 rails generate migration AddPartNumberToProducts
 
 Creating tables
+
 The migration method create_table will be one of your workhorses. A typical use would be:
 
 create_table :products do |t|
