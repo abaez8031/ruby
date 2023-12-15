@@ -1,4 +1,4 @@
-Implicit Returns - Methods in Ruby will automatically return the evaluation of their last executed expression. You will still need to use the explicit return keyword to do an early return
+Implicit Returns - Methods in Ruby will automatically return the evaluation of their last executed expression. You will still need to use the explicit return keyword to do an early return.
 
 Omitting parentheses for method calls with no arguments - When calling a method without passing any arguments, we'll often drop the parentheses altogether.
 
